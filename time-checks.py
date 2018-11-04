@@ -30,8 +30,8 @@ print("Probability of seeing 'lucky time' two times per day: "
       + str(p_a_max_2) + ", three: " + str(p_a_max_3) + ", four: " + str(p_a_max_4))
 
 n_sequential = 0
-size = 86
-sample = 1000000
+size = 28
+sample = 10000000
 
 for _ in range(sample):
     rare = np.random.random(size=size) < 0.044
