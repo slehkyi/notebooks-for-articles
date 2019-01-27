@@ -7,12 +7,9 @@ from bokeh.models import HoverTool, ColumnDataSource, CategoricalColorMapper, Sl
 from bokeh.palettes import Spectral6
 from bokeh.layouts import widgetbox, row
 
-
 # Data cleaning and preparation
 data = pd.read_csv('data/co2_emissions_tonnes_per_person.csv')
 data.head()
-
-# data.loc[:, data.isnull().all()]
 
 gapminder = pd.read_csv('data/gapminder_tidy.csv')
 gapminder.head()
@@ -20,7 +17,6 @@ gapminder.head()
 df = gapminder[['Country', 'region']].drop_duplicates()
 data_with_regions = pd.merge(data, df, left_on='country', right_on='Country', how='inner')
 data_with_regions = data_with_regions.drop('Country', axis='columns')
-
 data_with_regions.head()
 
 new_df = pd.melt(data_with_regions, id_vars=['country', 'region'])
@@ -28,7 +24,6 @@ new_df.head()
 
 columns = ['country', 'region', 'year', 'co2']
 new_df.columns = columns
-
 
 upd_new_df = new_df[new_df['year'].astype('int64') > 1963]
 upd_new_df.info()
