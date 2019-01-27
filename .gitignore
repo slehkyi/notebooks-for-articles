@@ -2,3 +2,4 @@
 .idea/*
 *.png
 *.jpg
+.ipynb_checkpoints
