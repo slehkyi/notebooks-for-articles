@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-from bokeh.io import output_file, show, curdoc
+from bokeh.io import curdoc
 from bokeh.plotting import figure
 from bokeh.models import HoverTool, ColumnDataSource, CategoricalColorMapper, Slider
 from bokeh.palettes import Spectral6
