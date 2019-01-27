@@ -19,6 +19,8 @@ df = pd.concat(frames)
 
 df_time = df[['O_3', 'PM10']][df['station'] == 28079008].dropna()
 
+df.sort_values
+
 df_plot = df_time.resample('M').mean()
 plt.plot(df_plot)
 plt.title('O3 and PM10 air polution levels')
