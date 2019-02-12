@@ -54,23 +54,23 @@ source = ColumnDataSource(data={
     'region': final_df.region[final_df['year'] == 1964],
 })
 
-# Save the minimum and maximum values of the fertility column: xmin, xmax
+# Save the minimum and maximum values of the gdp column: xmin, xmax
 xmin, xmax = min(final_df.gdp), max(final_df.gdp)
 
-# Save the minimum and maximum values of the life expectancy column: ymin, ymax
+# Save the minimum and maximum values of the co2 column: ymin, ymax
 ymin, ymax = min(final_df.co2), max(final_df.co2)
 
 # Create the figure: plot
 plot = figure(title='Gapminder Data for 1964', plot_height=600, plot_width=1000,
               x_range=(xmin, xmax),
-              y_range=(ymin, ymax), y_axis_type='log',)
+              y_range=(ymin, ymax), y_axis_type='log')
 
 # Add circle glyphs to the plot
 plot.circle(x='x', y='y', fill_alpha=0.8, source=source, legend='region',
             color=dict(field='region', transform=color_mapper),
             size=7)
 
-# Set the legend.location attribute of the plot to 'top_right'
+# Set the legend.location attribute of the plot
 plot.legend.location = 'bottom_right'
 
 # Set the x-axis label
@@ -79,6 +79,9 @@ plot.xaxis.axis_label = 'Income per person (Gross domestic product per person ad
 
 # Set the y-axis label
 plot.yaxis.axis_label = 'CO2 emissions (tonnes per person)'
+
+# Make a slider object: slider
+slider = Slider(start=min(final_df.year), end=max(final_df.year), step=1, value=min(final_df.year), title='Year')
 
 
 def update_plot(attr, old, new):
@@ -96,9 +99,6 @@ def update_plot(attr, old, new):
     # Add title to figure: plot.title.text
     plot.title.text = 'Gapminder data for %d' % yr
 
-
-# Make a slider object: slider
-slider = Slider(start=1964, end=2013, step=1, value=1964, title='Year')
 
 # Attach the callback to the 'value' property of slider
 slider.on_change('value', update_plot)
