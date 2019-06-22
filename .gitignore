@@ -1,5 +1,6 @@
+data/*
 *.csv
 .idea/*
 *.png
-*.jpg
+# *.jpg
 .ipynb_checkpoints
