@@ -1,0 +1,10 @@
+data/*
+*.csv
+.idea/*
+*.png
+# *.jpg
+.ipynb_checkpoints
+.terraform*
+*tfstate*
+tf_aws_stress_test/targets_l4.txt
+tf_aws_stress_test/targets_l7.txt
