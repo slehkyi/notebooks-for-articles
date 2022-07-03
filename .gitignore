@@ -8,3 +8,4 @@ data/*
 *tfstate*
 tf_aws_stress_test/targets_l4.txt
 tf_aws_stress_test/targets_l7.txt
+venv/
